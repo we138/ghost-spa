@@ -1,13 +1,15 @@
 (ns api
   (:require [ajax.core :refer [ajax-request json-request-format json-response-format]]))
 
-(def uri "http://localhost:3013/api/search")
+(goog-define URL "http://localhost:3013/api")
+
+;; (def uri (str "") "http://localhost:3013/api/search")
 
 (defn error-handler [response] (println "Error:" response))
 
 (defn search [params handler]
   (ajax-request
-   {:uri uri
+   {:uri (str URL "/search")
     :method :post
     :params params
     :handler handler

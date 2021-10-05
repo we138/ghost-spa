@@ -13,4 +13,5 @@
  {:app
   {:target :browser
    :modules {:main {:init-fn app/init}}
-   :release {:compiler-options {:optimizations :simple}}}}}
+   :release {:output-dir "./public/js"
+             :closure-defines {api/URL #shadow/env "GHOST_API_URL"}}}}}
